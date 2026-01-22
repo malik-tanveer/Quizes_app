@@ -1,0 +1,196 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(230, 229, 229);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* Added to allow better vertical spacing */
+}
+
+/* Glassmorphism Border Animation */
+@keyframes borderRun {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.animated-border {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 20px; /* Added some padding to prevent text from touching the edges */
+    border-radius: 12px;
+}
+
+.animated-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 3px;
+    background: linear-gradient(90deg, #00d4ff, #ff00b7, #00ff88, #00d4ff);
+    background-size: 200%;
+    animation: borderRun 6s linear infinite;
+    z-index: -1;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+/* Box Shadow and Fade In */
+.quiz-container {
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.2), 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 30px 50px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    animation: fadeIn 0.5s ease;
+    width: 100%;
+    max-width: 500px; /* Added max width for better control on larger screens */
+    margin: 0 auto; /* Center the quiz container */
+    padding: 30px;
+    border-radius: 12px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Styling */
+.quiz-header {
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0073e6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 5px rgba(0, 115, 230, 0.5);
+    text-align: center; /* Center align the header */
+}
+
+/* Question Styling */
+.question {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #333333;
+    text-shadow: 2px 3px 4px rgba(131, 130, 130, 0.9);
+}
+
+/* Progress Bar */
+.progress {
+    margin: 20px 0;
+    height: 12px;
+    width: 100%;
+    background: #eaeaea;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0073e6, #28a745);
+    transition: width 0.4s ease;
+    border-radius: 6px;
+}
+
+/* Buttons Styling */
+button {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px; /* Adds margin between buttons */
+}
+
+.submit-btn {
+    background: #0073e6;
+    color: #fff;
+}
+
+.submit-btn:hover {
+    background: #005bb5;
+    transform: translateY(-2px);
+}
+
+.next-btn {
+    background: #28a745;
+    color: #fff;
+    display: none;
+}
+
+.next-btn:hover {
+    background: #1f8b36;
+    transform: translateY(-2px);
+}
+
+/* Radio Button Styling */
+input[type="radio"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #0073e6;
+    border-radius: 50%;
+    background-color: #005bb5;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="radio"]:checked {
+    border-color: #0073e6;
+    background-color: #0073e6;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .quiz-container {
+        padding: 20px;
+        width: 100%; /* Full width for small devices */
+        margin-top: -100px;
+        max-width: 100%; /* Make it responsive to the screen size */
+    }
+    .quiz-header h1 {
+        font-size: 1.75rem;
+    }
+    #formContainer {
+        margin-top: -38%;
+    }
+    #resultContainer {
+        margin-top: -38%;
+    }
+    .quiz-header p {
+        font-size: 0.875rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px; /* Stack buttons on small devices */
+    }
+
+    .submit-btn,
+    .next-btn {
+        width: 100%; /* Full-width buttons */
+    }
+}
