@@ -1,12 +1,13 @@
 body {
     font-family: "Poppins", sans-serif;
-    background-color: rgb(230, 229, 229);
+    background-color: #121212;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column; /* Added to allow better vertical spacing */
+    flex-direction: column;
+    color: #e0e0e0;
 }
 
 /* Glassmorphism Border Animation */
@@ -22,9 +23,9 @@ body {
 .animated-border {
     position: relative;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(30, 30, 30, 0.7);
     backdrop-filter: blur(10px);
-    padding: 20px; /* Added some padding to prevent text from touching the edges */
+    padding: 20px;
     border-radius: 12px;
 }
 
@@ -46,14 +47,15 @@ body {
 
 /* Box Shadow and Fade In */
 .quiz-container {
-    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.2), 0 8px 15px rgba(0, 0, 0, 0.1);
-    box-shadow: 10px 30px 50px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), 0 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.5s ease;
     width: 100%;
-    max-width: 500px; /* Added max width for better control on larger screens */
-    margin: 0 auto; /* Center the quiz container */
+    max-width: 500px;
+    margin: 0 auto;
     padding: 30px;
     border-radius: 12px;
+    background: rgba(20, 20, 20, 0.85);
 }
 
 @keyframes fadeIn {
@@ -72,11 +74,11 @@ body {
     margin-bottom: 25px;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #0073e6;
+    color: #1e90ff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-shadow: 0 2px 5px rgba(0, 115, 230, 0.5);
-    text-align: center; /* Center align the header */
+    text-shadow: 0 2px 5px rgba(30, 144, 255, 0.7);
+    text-align: center;
 }
 
 /* Question Styling */
@@ -84,8 +86,8 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 25px;
-    color: #333333;
-    text-shadow: 2px 3px 4px rgba(131, 130, 130, 0.9);
+    color: #e0e0e0;
+    text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Progress Bar */
@@ -93,7 +95,7 @@ body {
     margin: 20px 0;
     height: 12px;
     width: 100%;
-    background: #eaeaea;
+    background: #2a2a2a;
     border-radius: 6px;
     overflow: hidden;
 }
@@ -101,7 +103,7 @@ body {
 .progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #0073e6, #28a745);
+    background: linear-gradient(90deg, #1e90ff, #28a745);
     transition: width 0.4s ease;
     border-radius: 6px;
 }
@@ -119,16 +121,16 @@ button {
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    margin: 10px; /* Adds margin between buttons */
+    margin: 10px;
 }
 
 .submit-btn {
-    background: #0073e6;
+    background: #1e90ff;
     color: #fff;
 }
 
 .submit-btn:hover {
-    background: #005bb5;
+    background: #0f5fa0;
     transform: translateY(-2px);
 }
 
@@ -147,17 +149,17 @@ button {
 input[type="radio"] {
     width: 1.25rem;
     height: 1.25rem;
-    border: 2px solid #0073e6;
+    border: 2px solid #1e90ff;
     border-radius: 50%;
-    background-color: #005bb5;
+    background-color: #0f5fa0;
     cursor: pointer;
     outline: none;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="radio"]:checked {
-    border-color: #0073e6;
-    background-color: #0073e6;
+    border-color: #1e90ff;
+    background-color: #1e90ff;
 }
 
 @media (max-width: 768px) {
@@ -167,9 +169,9 @@ input[type="radio"]:checked {
 
     .quiz-container {
         padding: 20px;
-        width: 100%; /* Full width for small devices */
+        width: 100%;
         margin-top: -100px;
-        max-width: 100%; /* Make it responsive to the screen size */
+        max-width: 100%;
     }
     .quiz-header h1 {
         font-size: 1.75rem;
@@ -186,11 +188,11 @@ input[type="radio"]:checked {
 
     .buttons {
         flex-direction: column;
-        gap: 10px; /* Stack buttons on small devices */
+        gap: 10px;
     }
 
     .submit-btn,
     .next-btn {
-        width: 100%; /* Full-width buttons */
+        width: 100%;
     }
 }
